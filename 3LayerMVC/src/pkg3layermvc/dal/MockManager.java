@@ -15,10 +15,10 @@ import pkg3layermvc.be.Inmate;
  */
 public class MockManager {
     public List<Inmate> getAllInmates(){
-        Inmate im1 = new Inmate(1, 256, "Piotr Steganovski");
-        Inmate im2 = new Inmate(2, 256, "Pierre Stegeau");
-        Inmate im3 = new Inmate(3, 128, "Peter Stegger");
-        Inmate im4 = new Inmate(5, 65536, "Petanika Stegunika");
+        Inmate im1 = new Inmate(1, 256, "Piotr Steganovski","05-11-2019");
+        Inmate im2 = new Inmate(2, 256, "Pierre Stegeau","05-11-2019");
+        Inmate im3 = new Inmate(3, 128, "Peter Stegger","05-11-2019");
+        Inmate im4 = new Inmate(5, 65536, "Petanika Stegunika","05-11-2019");
         
         ArrayList<Inmate> inmates = new ArrayList();
         

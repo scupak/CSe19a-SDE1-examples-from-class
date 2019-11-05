@@ -13,13 +13,24 @@ public class Inmate {
     private int fangenummer;
     private int celle;
     private String navn;
+    private String release;
 
-    public Inmate(int fangenummer, int celle, String navn) {
+    public Inmate(int fangenummer, int celle, String navn, String release) {
         this.fangenummer = fangenummer;
         this.celle = celle;
         this.navn = navn;
+        this.release = release;
     }
 
+    public String getRelease() {
+        return release;
+    }
+
+    public void setRelease(String release) {
+        this.release = release;
+    }
+
+    
     public Inmate() {
     }
     
@@ -51,7 +62,7 @@ public class Inmate {
 
     @Override
     public String toString() {
-       return fangenummer + ", " + navn + ", " + celle; 
+       return fangenummer + ", " + navn + ", " + celle + ", " + release; 
     }
     
     
