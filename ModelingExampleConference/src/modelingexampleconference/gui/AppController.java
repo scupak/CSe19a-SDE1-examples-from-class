@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg3layermvc.gui;
+package modelingexampleconference.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import pkg3layermvc.be.Inmate;
-import pkg3layermvc.bll.BLLManager;
+import modelingexampleconference.be.Conference;
+import modelingexampleconference.bll.BLLManager;
 
 /**
  *
@@ -26,24 +23,20 @@ public class AppController implements Initializable {
     @FXML
     private Label label;
     
-    @FXML
-    private Button button;
-    
-    @FXML
-    private ListView<Inmate> inmateList;
-    
-    private AppModel model = new AppModel();
+    private BLLManager bll = new BLLManager();
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
-        model.fetchData();
+        
+        Conference c2020 = bll.getConference(2020);
+        label.setText(c2020.getName());
         
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        inmateList.setItems(model.getInmateList());
+        // TODO
     }    
     
 }

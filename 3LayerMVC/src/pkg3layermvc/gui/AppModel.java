@@ -12,22 +12,23 @@ import pkg3layermvc.bll.BLLManager;
 
 /**
  *
- * @author anton
+ * @author jeppjleemoritzled
  */
 public class AppModel {
-      private BLLManager bll = new BLLManager();
-      private ObservableList<Inmate> inmates = FXCollections.observableArrayList();
-      
-      public void fetchData(){
-          
-          inmates.clear();
-          inmates.addAll(bll.getAllInmates());
-     
-      
-      }
+    private BLLManager bll = new BLLManager();
+    private ObservableList<Inmate> inmates = 
+            FXCollections.observableArrayList();
 
-    public ObservableList<Inmate> getInmatelist() {
-        return inmates;
+    public AppModel() {
+         fetchData();
     }
     
+    public void fetchData(){
+        inmates.clear();
+        inmates.addAll(bll.getAllInmates());
+    }
+    
+    public ObservableList<Inmate> getInmateList(){
+        return inmates;
+    }
 }
