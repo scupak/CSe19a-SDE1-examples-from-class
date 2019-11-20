@@ -33,6 +33,7 @@ public class InmateDAO {
         } catch (SQLException ex) {
             Logger.getLogger(InmateDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
         
     }
 }
