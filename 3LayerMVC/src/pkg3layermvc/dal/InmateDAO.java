@@ -10,6 +10,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.util.List;
 import pkg3layermvc.be.Inmate;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author jeppjleemoritzled
  */
-public class InmateDAO {
+public class InmateDAO implements DalFacade{
     public List<Inmate> getAllInmates(){
         SQLServerDataSource ds = new SQLServerDataSource();
         ds.setUser("CSe19B_40");
@@ -27,6 +28,19 @@ public class InmateDAO {
         ds.setServerName("10.176.111.31");
         
         try(Connection con = ds.getConnection()){
+            String sql = "SELECT * FROM Inmates";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            List<Inmate> inmates = new ArrayList();
+            while(rs.next()){
+                int fangenummer = rs.getInt("fangenummer");
+                int celle = rs.getInt("celle");
+                String navn = rs.getString("navn");
+                
+                Inmate inmate = new Inmate(fangenummer, celle, navn);
+                inmates.add(inmate);
+            }
+            return inmates;
             
         } catch (SQLServerException ex) {
             Logger.getLogger(InmateDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -34,6 +48,10 @@ public class InmateDAO {
             Logger.getLogger(InmateDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-        
+    }
+
+    @Override
+    public boolean deleteInmate(int fangenummer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
