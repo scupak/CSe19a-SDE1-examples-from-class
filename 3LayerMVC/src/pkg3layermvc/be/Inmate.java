@@ -31,7 +31,11 @@ public class Inmate {
     }
 
     
-    public Inmate() {
+    public Inmate(int fangenummer, int celle, String navn) {
+        this.fangenummer = fangenummer;
+        this.celle = celle;
+        this.navn = navn;
+        this.release = "0000";
     }
     
     
